@@ -27,7 +27,6 @@ def rules():
 		facebook_id = request.form['facebook_id']
 		# db.session.create(member_info)
 		# db.session.commit()
-
 		return render_template('index.html')
 
 @app.route('/input', methods=['GET', 'POST'])
@@ -35,34 +34,9 @@ def input():
 	form = moim_pay()
 	if request.method == 'POST':
 		if form.validate_on_submit():
-			pass
-
-# @app.route('/fblogin', methods=['GET'])
-# def article_list():
-# 	return 3
-# #
-# # @index & article list
-# #
-# @app.route('/', methods=['GET'])
-# def article_list():
-# 	# html 파일에 전달할 데이터 Context
-# 	context = {}
-
-# 	# 현재 모든 글의 갯수를 DB에서 가져와 rows에 저장한다.
-# 	rows = Article.query.count()
-# 	#5개의 글을 가져오기 위해 rows에서 5개의 글을 빼준다.
-# 	rows = rows - 5
-
-# 	# Article 데이터 전부를 받아와서 최신글 순서대로 정렬하여 'article_list' 라는 key값으로 context에 저장한다.
-# 	# id는 입력된 순서대로 저장되므로 아이디가 rows보다 큰 5개의 글만 가져온다.
-# 	context['article_list'] = Article.query.order_by(desc(Article.date_created)).filter(Article.id > rows)
+			
 
 
-# 	return render_template('home.html', context=context, active_tab='timeline')
-
-
-# #
-# # @article controllers
 # #
 # @app.route('/article/create/', methods=['GET', 'POST'])
 # def article_create():
@@ -174,3 +148,29 @@ def input():
 # def server_error(e):
 # 	return render_template('500.html'), 500
 
+# @app.route('/fblogin', methods=['GET'])
+# def article_list():
+# 	return 3
+# #
+# # @index & article list
+# #
+# @app.route('/', methods=['GET'])
+# def article_list():
+# 	# html 파일에 전달할 데이터 Context
+# 	context = {}
+
+# 	# 현재 모든 글의 갯수를 DB에서 가져와 rows에 저장한다.
+# 	rows = Article.query.count()
+# 	#5개의 글을 가져오기 위해 rows에서 5개의 글을 빼준다.
+# 	rows = rows - 5
+
+# 	# Article 데이터 전부를 받아와서 최신글 순서대로 정렬하여 'article_list' 라는 key값으로 context에 저장한다.
+# 	# id는 입력된 순서대로 저장되므로 아이디가 rows보다 큰 5개의 글만 가져온다.
+# 	context['article_list'] = Article.query.order_by(desc(Article.date_created)).filter(Article.id > rows)
+
+
+# 	return render_template('home.html', context=context, active_tab='timeline')
+
+
+# #
+# # @article controllers
