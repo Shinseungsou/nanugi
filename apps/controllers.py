@@ -9,7 +9,9 @@ from apps.models import (
 	Comment
 )
 
-
+@app.route('/fblogin', methods=['GET'])
+def article_list():
+	return 3
 #
 # @index & article list
 #
