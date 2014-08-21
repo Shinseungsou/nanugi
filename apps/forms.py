@@ -6,50 +6,33 @@ from wtforms import (
     TextAreaField
 )
 from wtforms import validators
-from wtforms.fields.html5 import EmailField
 
 
-class ArticleForm(Form):
+class moim(Form):
     title = StringField(
-        u'제목',
-        [validators.data_required(u'제목을 입력하시기 바랍니다.')],
-        description={'placeholder': u'제목을 입력하세요.'}
+        u'모임 이름',
+        [validators.data_required(u'모임 이름을 입력하시기 바랍니다.')],
+        description={'placeholder': u'모임 이름을 입력하세요.'}
     )
-    content = TextAreaField(
-        u'내용',
-        [validators.data_required(u'내용을 입력하시기 바랍니다.')],
-        description={'placeholder': u'내용을 입력하세요.'}
+    member = StringField(
+        u'참여자',
+        [validators.data_required(u'참여자를 입력하시기 바랍니다.')],
+        description={'placeholder': u'참여자를 입력하세요.'}
     )
-    author = StringField(
-        u'작성자',
-        [validators.data_required(u'이름을 입력하시기 바랍니다.')],
-        description={'placeholder': u'이름을 입력하세요.'}
+    place = StringField(
+        u'장소',
+        [validators.data_required(u'장소를 입력하시기 바랍니다.')],
+        description={'placeholder': u'장소를 입력하세요.'}
     )
-    category = StringField(
-        u'카테고리',
-        [validators.data_required(u'카테고리를 입력하시기 바랍니다.')],
-        description={'placeholder': u'카테고리를 입력하세요.'}
-    )
-
-
-class CommentForm(Form):
     content = StringField(
-        u'내용',
-        [validators.data_required(u'내용을 입력하시기 바랍니다.')],
-        description={'placeholder': u'내용을 입력하세요.'}
+        u'지출 내역',
+        [validators.data_required(u'지출 내역을 입력하시기 바랍니다.')],
+        description={'placeholder': u'지출 내역을 입력하세요.'}
     )
-    author = StringField(
-        u'작성자',
-        [validators.data_required(u'이름을 입력하시기 바랍니다.')],
-        description={'placeholder': u'이름을 입력하세요.'}
+    pay_all = StringField(
+        u'총 지출액',
+        [validators.data_required(u'총 지출액을 입력하시기 바랍니다.')],
+        description={'placeholder': u'총 지출액을 입력하세요.'}
     )
-    password = PasswordField(
-        u'비밀번호',
-        [validators.data_required(u'비밀번호를 입력하시기 바랍니다.')],
-        description={'placeholder': u'비밀번호를 입력하세요.'}
-    )
-    email = EmailField(
-        u'이메일',
-        [validators.data_required(u'이메일을 입력하시기 바랍니다.')],
-        description={'placeholder': u'이메일을 입력하세요.'}
-    )
+
+

@@ -4,10 +4,23 @@ from sqlalchemy import desc
 from apps import app, db
 from apps.forms import ArticleForm, CommentForm
 
-# from apps.models import (
-# 	Article,
-# 	Comment
-# )
+from apps.models import (
+	member_info,
+	moim,
+	moim_join,
+	moim_pay,
+)
+
+
+@app.route('/index')
+@app.route('/')
+def index():
+
+
+@app.route('/input')
+def input():
+	form = moim()
+
 
 # @app.route('/fblogin', methods=['GET'])
 # def article_list():
