@@ -35,3 +35,9 @@ class moim_pay(db.Model):
     content = db.Column(db.String(255))
     payment_all = db.Column(db.Integer)
     moim_date = db.Column(db.DateTime(), default=db.func.now())
+
+class moim_mem(db.Model):
+    moim_id = db.Column(db.Integer, primary_key=True, db.ForeignKey('moim.id'))
+    moim = db.relationship('moim', backref=db.backref('moim_mem', cascade='all, delete-orphan', lazy='dynamic'))
+    member_id = db.Column(db.Integer, primary_key=True, db.ForeignKey('member_info.id'))
+    member_info = db.relationship('member_info', backref=db.backref('moim_mem', cascade='all, delete-orphan', lazy='dynamic'))

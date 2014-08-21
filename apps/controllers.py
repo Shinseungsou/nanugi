@@ -2,25 +2,40 @@
 from flask import render_template, request, redirect, url_for, flash, jsonify
 from sqlalchemy import desc
 from apps import app, db
-from apps.forms import ArticleForm, CommentForm
+from apps.forms import moim_pay
 
 from apps.models import (
 	member_info,
 	moim,
 	moim_join,
 	moim_pay,
+	moim_mem
 )
 
 
-@app.route('/index')
+@app.route('/login')
 @app.route('/')
-def index():
+def login():
+	return render_template('login.html')
 
+@app.route('/rules', methods=['GET', 'POST'])
+def rules():
+	if request.method == 'GET':
+		return render_template('rules.html')
+
+	elif request.method == 'POST':
+		facebook_id = request.form['facebook_id']
+		db.session.create(member_info)
+		db.session.commit()
+
+		return render_template('index.html')
 
 @app.route('/input')
 def input():
 	form = moim()
-
+	if request.method == 'POST':
+		if form.validate_on_submit():
+			pass
 
 # @app.route('/fblogin', methods=['GET'])
 # def article_list():

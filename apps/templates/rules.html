@@ -21,10 +21,13 @@
 		<img src = '../static/img/logo.png' id= 'logo'></img>
 		<h3 class="fs-subtitle">식사회비 계산, 나누기가 도와드려요! </h3>
 		<h4 class= "rules">'NaNuGi'는 facebook계정으로 이용할 수 있으며, ID에 해당하는 고유 식별번호를 저장하여 서비스를 하고 있습니다. 또한 수집되는 모임 및 지출내역에 관한 정보는 서비스를 제공하기 위해서만 이용되며, 기타 다른 목적으로 사용되지 않습니다. 이에 동의하시는 경우에만 'next'버튼을 눌러 사용을 시작하십시요.</h4>
-		<input type="button" name="next" class="agree" value="next(동의)" />
+		<form method='POST' action="/rules">
+			<input type="hidden" name="facebook_id">
+			<input type="submit" name="next" class="agree" value="next(동의)" />
+		</form>
 		<input type="button" name="reject" class="disagree" value="reject(거절)" />
 	</fieldset>
-	
+
 </form>
 
 

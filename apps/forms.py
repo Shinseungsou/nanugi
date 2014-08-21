@@ -8,12 +8,7 @@ from wtforms import (
 from wtforms import validators
 
 
-class moim(Form):
-    title = StringField(
-        u'모임 이름',
-        [validators.data_required(u'모임 이름을 입력하시기 바랍니다.')],
-        description={'placeholder': u'모임 이름을 입력하세요.'}
-    )
+class moim_pay(Form):
     member = StringField(
         u'참여자',
         [validators.data_required(u'참여자를 입력하시기 바랍니다.')],
@@ -34,5 +29,3 @@ class moim(Form):
         [validators.data_required(u'총 지출액을 입력하시기 바랍니다.')],
         description={'placeholder': u'총 지출액을 입력하세요.'}
     )
-
-
