@@ -20,9 +20,11 @@
 		<h2 class="fs-title">NaNuGi</h2>
 		<img src = '../static/img/logo.png' id= 'logo'></img>
 		<h3 class="fs-subtitle">식사회비 계산, 나누기가 도와드려요! </h3>
-		<input type="text" name="email" placeholder="Email" />
-		<input type="password" name="pass" placeholder="Password" />
-		<input type="button" name="next" class="login action-button" value="Login" />
+		<form action="/login" method="POST">
+			<input type="text" name="email" placeholder="Email" />
+			<input type="password" name="pass" placeholder="Password" />
+			<input type="submit" name="next" class="login action-button" value="Login" />
+		</form>
 	</fieldset>
 
 </form>

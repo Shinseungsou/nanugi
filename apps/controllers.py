@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-from flask import render_template, request, redirect, url_for, flash, jsonify
+from flask import render_template, request, redirect, url_for, flash, jsonify, sessions
 from sqlalchemy import desc
 from apps import app, db
 from apps.forms import moim_pay
@@ -13,9 +13,17 @@ from apps.models import (
 )
 
 
-@app.route('/login', methods=['GET'])
-@app.route('/', methods=['GET'])
+@app.route('/', methods = ['GET', 'POST'])
+@app.route('/login', methods = ['GET', 'POST'])
 def login():
+	if request.method == 'POST':
+		email = request.form['email']
+		context = Article.query.filter(member_info.email = email)
+		if context:
+			return render_template('index.html')
+		else:
+			return render_template('rules.html')
+
 	return render_template('login.html')
 
 @app.route('/rules', methods=['GET', 'POST'])
