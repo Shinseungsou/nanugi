@@ -13,8 +13,8 @@ from apps.models import (
 )
 
 
-@app.route('/login')
-@app.route('/')
+@app.route('/login', methods=['GET'])
+@app.route('/', methods=['GET'])
 def login():
 	return render_template('login.html')
 
@@ -25,14 +25,14 @@ def rules():
 
 	elif request.method == 'POST':
 		facebook_id = request.form['facebook_id']
-		db.session.create(member_info)
-		db.session.commit()
+		# db.session.create(member_info)
+		# db.session.commit()
 
 		return render_template('index.html')
 
-@app.route('/input')
+@app.route('/input', methods=['GET', 'POST'])
 def input():
-	form = moim()
+	form = moim_pay()
 	if request.method == 'POST':
 		if form.validate_on_submit():
 			pass
