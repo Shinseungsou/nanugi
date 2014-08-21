@@ -17,12 +17,13 @@ from apps.models import (
 @app.route('/login', methods = ['GET', 'POST'])
 def login():
 	if request.method == 'POST':
-		email = request.form['email']
+		email = request.form['Email']
 		context = Article.query.filter(member_info.email = email)
 		if context:
+			session['user'] = email
 			return render_template('index.html')
 		else:
-			return render_template('rules.html')
+			return render_template('rules.html', user = email)
 
 	return render_template('login.html')
 
