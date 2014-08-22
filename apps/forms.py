@@ -8,8 +8,9 @@ from wtforms import (
 from wtforms import validators
 
 
+
 class moim_pay(Form):
-    member = StringField(
+    member_pay = StringField(
         u'참여자',
         [validators.data_required(u'참여자를 입력하시기 바랍니다.')],
         description={'placeholder': u'참여자를 입력하세요.'}

@@ -40,10 +40,17 @@ def rules():
 
 @app.route('/input', methods=['GET', 'POST'])
 def input():
+	if request.method == 'GET':
+		return 
 	form = moim_pay()
-	if request.method == 'POST':
+	elif request.method == 'POST':
 		if form.validate_on_submit():
-			
+			basic = moim(
+				member_pay=form.kkkkkkk.data,
+				place=form
+
+
+				)
 
 
 # #
